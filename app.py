@@ -6,7 +6,6 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return render_template('index.html')
-    # return "<p>Hello, World!</p>"
 
 @app.route("/rough")
 def rough():
@@ -20,18 +19,33 @@ def email():
 def resultemail():
     email = request.form['email']
     email_content = request.form['email_content']
+    consent = request.form.getlist('consent')
+    
+    if consent == ['1']:
+        consent = 1
+    else:
+        consent = 0
+    
     final = email + ' ' + email_content
-    # final = add(3,5)
-    spam = spam_detector(email, email_content)
-    return render_template('result.html', id=email, content=email_content, output = final, spam=spam)
+    spam = spam_detector(email, email_content, consent)
+    return render_template('result.html', id=email, content=email_content, output = final, spam=spam, consent=consent)
 
 @app.route("/sms/result", methods=['POST'])
 def resultesms():
     phone = request.form['phoneno']
     sms_content = request.form['sms_content']
+
+    consent = request.form.getlist('consent')
+    
+    if consent == ['1']:
+        consent = 1
+    else:
+        consent = 0
+    # print(consent)
+
     final = phone + ' ' + sms_content
-    spam = spam_detector(phone, sms_content)
-    return render_template('result.html', id=phone, content=sms_content, output = final, spam=spam)
+    spam = spam_detector(phone, sms_content, consent)
+    return render_template('result.html', id=phone, content=sms_content, output = final, spam=spam, consent=consent)
 
 
 

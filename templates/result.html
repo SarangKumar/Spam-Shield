@@ -4,6 +4,13 @@
 {{id}}
 {{content}}
 {{output}}
+{{consent}}
+
+{% if consent %}
+    <p>consent given</p>
+{% else %}
+    <p>consent not given</p>
+{% endif %}
 
 <h1>result.html</h1>
 
@@ -11,4 +18,6 @@
 <i class="fa fa-times" aria-hidden="true"></i>
 {% else %}
 <i class="fa fa-check" aria-hidden="true"></i>
-{% endif %} {% if spam %} {% endif %} {% endblock %}
+{% endif %} 
+
+{% endblock %}

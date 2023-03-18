@@ -7,7 +7,7 @@ import pickle
 def add(x,y):
     return x+y
 
-def spam_detector(id, content):
+def spam_detector(id, content, consent):
     data = pd.read_csv('static/dataset/spam.csv',encoding="latin-1")
     data.drop(['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4'], axis=1, inplace=True)
     data['v1']=data['v1'].map({'ham':0, 'spam':1})
@@ -37,10 +37,10 @@ def spam_detector(id, content):
     result=model.predict(vect)
     print(result)
     if result==1:
-        print("It is a spam")
+        # print("It is a spam")
         return 1
     else:
-        print("It is not a spam")
+        # print("It is not a spam")
         return 0
 
 
