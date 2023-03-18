@@ -2,7 +2,12 @@ const links = document.querySelectorAll('.link');
 
 
 
-console.log(links);
+if(window.location.pathname=='/email'){
+    document.getElementById('mail').style.borderBottom = '2px solid #5ED4F3'
+} else if(window.location.pathname=='/sms'){
+    document.getElementById('sms').style.borderBottom = '2px solid #5ED4F3'
+
+}
 
 for(let i=0; i<links.length; i++) {
 

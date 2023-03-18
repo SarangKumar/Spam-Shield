@@ -1,4 +1,9 @@
-{%extends "layout.html" %} {% block result %}
+{%extends "layout.html" %} 
+{% block result %}
+
+{{id}}
+{{content}}
+{{output}}
 
 <h1>result.html</h1>
 
@@ -6,10 +11,4 @@
 <i class="fa fa-times" aria-hidden="true"></i>
 {% else %}
 <i class="fa fa-check" aria-hidden="true"></i>
-{% endif %}
-
-{% if spam %}
-
-{% endif %}
-
-{% endblock %}
+{% endif %} {% if spam %} {% endif %} {% endblock %}

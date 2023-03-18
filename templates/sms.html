@@ -1,9 +1,32 @@
 {%extends "layout.html" %}
-
 {% block body %}
 
-<h1>sms.html</h1>
+<div class="heading-container">
+    <h1 class="heading">SPAM IDENTIFIER</h1><span>(sms)</span>
+</div>
 
-
+<form action="/sms/result" class="form" method="post">
+    <div class="phone-container row">
+        <label for="phone">Enter the phone no.</label>
+        <input name='phoneno' required name="phone" type="tel" class="email" />
+    </div>
+    
+    <div class="content-container row">
+        <label for="content-ph">Enter the mail content</label>
+        <textarea
+        required
+        name="sms_content"
+        class="content-textarea"
+        rows="4"
+        type="text"
+        >
+    </textarea>
+</div>
+<section class="consent">
+    <input type="checkbox" name="styles" id="outline" class="custom-checkbox" />
+    <label for="outline">I wish to give my data to the website</label>
+</section>
+<input type="submit" />
+</form>
 
 {% endblock %}
