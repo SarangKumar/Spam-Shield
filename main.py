@@ -2,7 +2,6 @@ import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
-import mysql_final_copy
 import pickle
 
 def add(x,y):
@@ -30,17 +29,6 @@ def spam_detector(id, content, consent):
     pickle.dump(cv,open("vectorizer.pkl","wb"))
 
     clf=pickle.load(open("spam.pkl","rb"))
-
-    # code for database
-    if consent == 1:
-        mysql_final_copy.create_server_connection()
-        mysql_final_copy.my_insert(id)
-        
-
-
-
-    #-----------------------------------------------------
-
 
 
     test_msg=content
