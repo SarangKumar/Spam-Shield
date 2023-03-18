@@ -7,65 +7,12 @@
     font-family: 'Quicksand', sans-serif;
 }
 
-body {
-    background-color: #f2f2f2;
-    color: #222;
-}
-
-
-.body-container {
-    /* min-height: 100vh; */
-    display: flex;
-    border-radius: 0.5rem;
-    background-color: #fff;
-    flex-direction: column;
-}
-
-nav {
-    /* background-color: red; */
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border-radius:0.5rem 0.5rem 0 0;
-    overflow: hidden;
-
-}
-
-
-nav #mail, nav #sms{
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    cursor: pointer;
-    background-color: orange;
-    /* border-radius: 0.5rem 0 0 0.5rem; */
-}
-
-nav #mail.active, nav #sms.active{
-    background-color: red;
-}
-
-nav #sms{
-    /* border-radius: 0 0.5rem 0.5rem 0; */
-    background-color: green;
-}
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Quicksand', sans-serif;
-}
-
 :root{
-    --primary:#5373E5;
-    --secondary:#F3F3F3;
-    --white:#fff;
-    --light-text:#fff;
-    --dark-text:#222;
+    --primary:#5ED4F3;
+    --secondary:#000;
+    --white:#282828;
+    --light-text:#222;
+    --dark-text:#fff;
 }
 
 body {
@@ -113,3 +60,71 @@ nav #sms{
     /* border-radius: 0 0.5rem 0.5rem 0; */
     background-color: green;
 }
+
+
+/* email */
+
+
+.container{
+    margin: 1rem 2rem;
+    padding: 2rem;
+    min-width: 90vw;
+    border-radius:10px;
+    background-color: var(--white);
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+.row{
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+}
+label{
+    color: var(--dark-text);
+}
+input, textarea
+{
+    outline: none;
+    width: 100%;
+    padding:10px;
+    border-radius: 5px;
+    background-color: transparent;
+    color: var(--dark-text);
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-color: var(--dark-text);
+    resize:vertical;
+}
+
+.email::before{
+    content:'Email';
+    color:red;
+}
+
+
+input:focus, .input:focus-within{
+    border-color: var(--primary);
+}
+
+input[type=submit]
+{
+
+    cursor: pointer;
+    padding:0.75rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary);
+    /* position: absolute; */
+    margin-top:50px;
+    width:100%;
+}
+
+input[type='submit']:hover{
+    box-shadow: rgba(255, 225, 225, 0.1) 0px 3px 8px;
+}
+
