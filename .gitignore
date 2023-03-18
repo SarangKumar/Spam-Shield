@@ -1,5 +1,6 @@
 email.ipynb
-spam.csv
-*.pkl
 
+/*.pkl
+
+/__pycache__
 email.ipynb
