@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,17 +18,20 @@
     />
   </head>
   <body>
+    <nav>
+      <a href="email" id="mail" class="link">Email</a>
+      <a href="sms" id="sms" class="link">SMS</a>
+    </nav>
     <div class="body-container">
-      <nav>
-        <a href="email" id="mail" class="link">Email</a>
-        <a  href="sms" id="sms" class="link">SMS</a>
-      </nav>
       <div class="content">
-
-          {% block body %} {% endblock %}
-        </div>
+        <div class="box">{% block body %} {% endblock %}</div>
+        <div class="result">{% block result %} {% endblock %}</div>
+      </div>
     </div>
-    <footer>footer</footer>
+    <footer>
+      <p>@2022-23</p>
+      <p>Barbie's Bodyguards</p>
+    </footer>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </body>
