@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from main import add, spam_detector
 
 app = Flask(__name__)
 
@@ -20,7 +21,8 @@ def resultemail():
     email = request.form['email']
     email_content = request.form['email_content']
     final = email + ' ' + email_content
-    spam = 0
+    # final = add(3,5)
+    spam = spam_detector(email, email_content)
     return render_template('result.html', id=email, content=email_content, output = final, spam=spam)
 
 @app.route("/sms/result", methods=['POST'])
