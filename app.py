@@ -30,7 +30,7 @@ def resultesms():
     phone = request.form['phoneno']
     sms_content = request.form['sms_content']
     final = phone + ' ' + sms_content
-    spam = 1
+    spam = spam_detector(phone, sms_content)
     return render_template('result.html', id=phone, content=sms_content, output = final, spam=spam)
 
 
