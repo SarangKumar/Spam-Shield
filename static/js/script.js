@@ -17,3 +17,9 @@ for(let i=0; i<links.length; i++) {
 }
 
 
+
+links.map(link => link.addEventListener('click', 
+    // link.classList.add('active'))
+    console.log(link)
+// }
+))
