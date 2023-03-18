@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+:root{
+    --primary:#5373E5;
+    --secondary:#F3F3F3;
+    --white:#fff;
+    --light-text:#fff;
+    --dark-text:#222;
+}
+
+body {
+    background-color: var(--secondary);
+    color: var(--dark-text);
+}
+
+
+.body-container {
+    margin: 1rem auto;
+    padding: 1rem;
+    max-width: 1000px;
+    display: flex;
+    border-radius: 0.5rem;
+    background-color: var(--white);
+    flex-direction: column;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius:0.5rem 0.5rem 0 0;
+    overflow: hidden;
+}
+
+
+nav #mail, nav #sms{
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    color: var(--light-text);
+    cursor: pointer;
+    background-color: var(--primary);
+    /* border-radius: 0.5rem 0 0 0.5rem; */
+}
+
+nav #mail.active, nav #sms.active{
+    background-color: var(--white);
+}
+
+nav #sms{
+    /* border-radius: 0 0.5rem 0.5rem 0; */
+    background-color: green;
+}
+
+.content{
+    padding: 1rem 0;
+    background-color: var(--primary);
+    /* height: 50%; */
+}
