@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    background-color: #f2f2f2;
+    color: #222;
+}
+
+
+.body-container {
+    /* min-height: 100vh; */
+    display: flex;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    flex-direction: column;
+}
+
+nav {
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius:0.5rem 0.5rem 0 0;
+    overflow: hidden;
+
+}
+
+
+nav #mail, nav #sms{
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    background-color: orange;
+    /* border-radius: 0.5rem 0 0 0.5rem; */
+}
+
+nav #mail.active, nav #sms.active{
+    background-color: red;
+}
+
+nav #sms{
+    /* border-radius: 0 0.5rem 0.5rem 0; */
+    background-color: green;
+}
+
+.content{
+    background-color: red;
+    /* height: 50%; */
+}
