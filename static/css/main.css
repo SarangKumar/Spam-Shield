@@ -276,6 +276,7 @@ input[type='submit']:hover {
 }
 
 .result-container {
+    position: relative;
     background-color: var(--white);
     padding: 1rem 3rem;
     border-radius: 0.5rem;
