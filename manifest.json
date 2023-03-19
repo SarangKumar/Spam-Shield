@@ -1,0 +1,24 @@
+{
+    "manifest_version": 1,
+    "name": "Spam Alert",
+    "description": "Beware of spam",
+    "version": "1.0",
+    "icons": {
+      "16": "images/icon-16.png",
+      "32": "images/icon-32.png",
+      "48": "images/icon-48.png",
+      "64": "images/icon-64.png",
+      "100": "images/icon-100.png"
+    },
+    "content_scripts": [
+      {
+        "js": [
+          "scripts/content.js"
+        ],
+        "matches": [
+          "https://developer.chrome.com/docs/extensions/*",
+          "https://developer.chrome.com/docs/webstore/*"
+        ]
+      }
+    ]
+  }
