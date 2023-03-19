@@ -44,7 +44,8 @@ def spam_detector(id, content, consent):
     result=model.predict(vect)
     print(result)
     if result==1:
-        mongodb1.is_spam(id)
+        if (consent==1):
+            mongodb1.is_spam(id)
         # print("It is a spam")
         return 1
     else:
