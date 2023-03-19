@@ -94,8 +94,9 @@ def execute_query(connection, query):
 
 create_table = """
 create table spam_list_new(
-email_id varchar(30) not null,
-spams int not null)
+spams int not null,
+email_id_phone_num varchar(30) not null
+)
 """
 
 #connect to the database
@@ -105,15 +106,76 @@ execute_query(connection,create_table)
 
 # In[358]:
 
+#db1 = mysql.connector.connect(host_name="localhost",user_name='root',user_password='16020byaadav',db_name='hackattack')
 
-def my_insert(id):
+cur = connection.cursor()
+
+s = 'INSERT INTO spam_list_new values(%s,%s)'
+
+t = (0,"bbb@gmail.com")
+cur.execute(s,t)
+connection.commit()
+
+
+
+
+'''
+    con = mysql.connector.connect(
+        host = "localhost",
+        user = "root",
+        passwd = "16020byaadav",
+        database = "hackattack"
+    )
+
+    cur = con.cursor()
+    no = 0
+    id = "abc@gmail.com"
+    query = "Insert into spam_list_new({},'{}')".format(no,id)
+    print("before execute")
+    cur.execute(query)
+    print("after execute")
+    con.commit()
+    print("after commit")
+    '''
+
+
+
+
+
+'''
+    mysql_var = mysql.connector.connect(
+        host = "localhost",
+        user = "root",
+        passwd = "16020byaadav",
+        database = "hackattack"
+    )
+    cursor = mysql_var.cursor()
+    cursor.execute("""INSERT INTO hackattack (int,str)
+        VALUES (%s, '%s')""" % (int,str))
+    mysql_var.commit()
+'''
+
+'''
+    mycursor = mysql_var.cursor()
+    sql = """insert into spam_list_new(No. of spams, Email_id_Phone_num) values(%s,'%s')"""
+    val = [
+        (0,"hello"),
+        (0,"hi")
+    ]
+
+    mycursor.executemany(sql,val)
+    mysql_var.commit()
+'''
+'''
     data_orders = """
     insert into spam_list_new values
     (0,id)
     """
+    
 
     connection = create_db_connection(db)
     execute_query(connection, data_orders)
+'''
 
 #my_insert(id)
 '''
@@ -229,7 +291,7 @@ for result in results:
     result = list(result)
     from_db.append(result)
     
-columns = ["No. of spams","Email_id"]
+columns = ["No. of spams","Email_id_Phone_num"]
 
 df = pd.DataFrame(from_db,columns = columns)
 print(df)

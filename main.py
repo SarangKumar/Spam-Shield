@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
-import mysql_final_copy
+import mongodb1
 import pickle
 
 def add(x,y):
@@ -32,15 +32,10 @@ def spam_detector(id, content, consent):
     clf=pickle.load(open("spam.pkl","rb"))
 
     # code for database
-    if consent == 1:
-        mysql_final_copy.create_server_connection()
-        mysql_final_copy.my_insert(id)
-        
-
-
+    #if consent == 1:
+        #mongodb1.my_insert(id)
 
     #-----------------------------------------------------
-
 
 
     test_msg=content
@@ -49,6 +44,7 @@ def spam_detector(id, content, consent):
     result=model.predict(vect)
     print(result)
     if result==1:
+        mongodb1.is_spam(id)
         # print("It is a spam")
         return 1
     else:
