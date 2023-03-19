@@ -2,9 +2,9 @@ const links = document.querySelectorAll('.link');
 
 
 
-if(window.location.pathname=='/email'){
+if(window.location.pathname.includes('/email')){
     document.getElementById('mail').style.borderBottom = '2px solid #5ED4F3'
-} else if(window.location.pathname=='/sms'){
+} else if(window.location.pathname.includes('/sms')){
     document.getElementById('sms').style.borderBottom = '2px solid #5ED4F3'
 } else if(window.location.pathname=='/'){
     document.querySelector('nav').style.display = 'none'

@@ -30,6 +30,66 @@ body {
     position: relative;
 }
 
+/*  */
+.selection-table {
+    display: flex;
+    /* background-color: red; */
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+}
+
+
+.selection-table {
+    background-color: var(--white);
+    padding: 2rem 3rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    border-top: 2px solid var(--primary);
+}
+
+.selection-table>a {
+    padding: 3rem 2rem;
+    display: flex;
+    text-decoration: none;
+    gap: 1rem;
+    align-items: center;
+    justify-self: center;
+    border-radius: 1rem;
+    flex-direction: column;
+    border: 2px solid var(--primary);
+    flex: 1 1 0px;
+    transition: all 200ms ease-in-out;
+}
+
+.selection-table>a>.fa-solid {
+    font-size: 8rem;
+    /* color: var(--dark-text); */
+    color: var(--primary);
+    opacity: 0.8;
+    transition: all 200ms ease-in-out;
+}
+
+.selection-table>a>h1 {
+    transition: all 200ms ease-in-out;
+    color: var(--dark-text);
+    font-size: 1.2rem;
+}
+
+
+.selection-table>a:hover {
+    /* background-color: var(--dark-text); */
+    transform: scale(1.03);
+    color: green;
+}
+
+.selection-table>a:hover .selection-table>a>h1 {
+    color: red;
+}
+
+
+
+
 /* heading */
 
 .heading {
@@ -84,6 +144,7 @@ nav #sms.active {
 .result>.fa-check {
     background-color: green;
 }
+
 .result>.fa-times {
     background-color: red;
 }
@@ -98,6 +159,7 @@ nav #sms.active {
     padding: 1rem 3rem;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
+    border-top: 2px solid var(--primary);
 }
 
 .heading {
@@ -115,6 +177,7 @@ nav #sms.active {
 /* email */
 
 .form {
+    border-top: 2px solid var(--primary);
     border-radius: 0.5rem;
     background-color: var(--white);
     display: flex;
@@ -212,6 +275,25 @@ input[type='submit']:hover {
     }
 }
 
+.result-container {
+    background-color: var(--white);
+    padding: 1rem 3rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.result-container p {
+    margin-bottom: 1rem;
+}
+
+.notspam {
+    border: 2px solid green;
+}
+
+.spam {
+    border: 2px solid red;
+}
+
 
 footer {
     position: absolute;
@@ -233,11 +315,11 @@ footer p {
     .heading-container {
         padding: 1rem 2rem;
     }
-    
+
     .body-container {
         margin: 6rem 6rem;
     }
-    
+
     .form {
         padding: 2rem 2rem;
     }
@@ -247,7 +329,7 @@ footer p {
     .heading-container {
         padding: 1rem;
     }
-    
+
     .body-container {
         margin: 6rem 2rem;
     }
