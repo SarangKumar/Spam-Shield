@@ -46,21 +46,9 @@ def spam_detector(id, content, consent):
     if result==1:
         if (consent==1):
             mongodb1.is_spam(id)
-        # print("It is a spam")
         return 1
     else:
-        # print("It is not a spam")
         return 0
-
-
-
-
-
-
-
-
-
-
 
 
 

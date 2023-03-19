@@ -134,10 +134,10 @@ nav #sms.active {
     justify-content: center;
     width: 2rem;
     height: 2rem;
-    transform: translate(-50%, -50%);
+    transform: translate(50%, -50%);
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     border-radius: 50%;
 }
 
