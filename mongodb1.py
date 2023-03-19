@@ -16,14 +16,16 @@ def is_spam(id):
     if (email):
         print(email)
         spam_count = list(email.values())[1]
-        #print("spam_count = ",spam_count)
-        spam_count=spam_count+1
+        print("spam_count = ",spam_count)
+        spam_count=int(spam_count)+1
+        spam_count = int(spam_count)
         #filter = {'email_id':id}
         #newvalues = {'Number_of_spams':spam_count}
         collection.replace_one({'email_id':id},
         {
-            'email_id':id,
-            'Number_of_spams':spam_count
+            'Number_of_spams':spam_count,
+            'email_id':id
+            
         })
 
     
