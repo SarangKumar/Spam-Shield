@@ -1,9 +1,9 @@
 
-import pymongo
+from pymongo import MongoClient
 
 def is_spam(id):
     print("Welcome to pyMongo")
-    client = pymongo.MongoClient("mongodb://localhost:27017")
+    client = MongoClient("mongodb+srv://<username>:<password>@newcluster.usro4ck.mongodb.net/?retryWrites=true&w=majority")
     print(client)
     db = client['hackattack']
     collection = db['spamlist']
