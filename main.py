@@ -2,11 +2,9 @@ import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
-import mongodb1
+import mongodb
 import pickle
 
-def add(x,y):
-    return x+y
 
 def spam_detector(id, content, consent):
     data = pd.read_csv('static/dataset/spam.csv',encoding="latin-1")
@@ -45,12 +43,14 @@ def spam_detector(id, content, consent):
     print(result)
     if result==1:
         if (consent==1):
-            mongodb1.is_spam(id)
+            mongodb.is_spam(id)
         return 1
     else:
         return 0
 
-
+def csv_data():
+    data = pd.read_csv('static/dataset/spam.csv',encoding="latin-1")
+    return data.shape[0]
 
 if __name__ == '__main__':
     print('this is the main function')

@@ -1,18 +1,9 @@
-{%extends "layout.html" %} {% block body %}
+{% extends 'layout.html' %}
 
-<div class="heading-container">
-  <h1 class="heading">SPAM ALERT 📢</h1>
-</div>
+{% block spam_container %} 
 
-<div class="selection-table">
-  <a href="email" class="link-home">
-    <i class="fa-solid fa-envelope"></i>
-    <h1>EMAIL</h1>
-  </a>
-  <a href="sms" class="link-home">
-    <i class="fa-solid fa-mobile"></i>
-    <h1>SMS</h1>
-  </a>
-</div>
+{% block mail %}{% endblock %}
+
+{% block sms %}{% endblock %}
 
 {% endblock %}

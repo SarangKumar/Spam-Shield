@@ -1,0 +1,564 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+    /* outline: 1px solid yellowgreen; */
+}
+
+:root {
+    --background: #f4fffd;
+    --primary: #0E8388;
+    --secondary: #2E4F4F;
+    --light: #fff;
+    --dark: #2C3333;
+    --red: #FF3333;
+    --red-light: #ffefef;
+    --green: #1EBB53;
+    --green-light: #ddffe8;
+
+    --primary-text: 'Montserrat', sans-serif;
+    --secondary-text: 'Poppins';
+}
+
+body {
+    scroll-behavior: smooth;
+    background-color: #fafafa;
+}
+
+nav {
+    background-color: var(--primary);
+    height: 3rem;
+    position: fixed;
+    width: 100vw;
+    color: var(--light);
+    display: flex;
+    align-items: center;
+    z-index: 10;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.nav-title {
+    font-family: var(--primary-text);
+    margin: 0 4rem;
+    font-size: 1.1rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.nav-title img {
+    height: 2rem;
+}
+
+.membership {
+    margin: 0 4rem;
+    font-size: 0.65rem;
+    border: 2px solid var(--light);
+    color: var(--light);
+    padding: 0rem 1rem;
+    border-radius: 1rem;
+    font-family: var(--secondary-text);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+
+#container {
+    padding-top: 2rem;
+    scroll-snap-type: y mandatory;
+}
+
+#section1,
+#section2,
+#section3 {
+    scroll-snap-align: center;
+    width: 100%;
+}
+
+/* intro */
+
+.intro {
+    margin: 4rem 0 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro h1 {
+    font-size: 2.8rem;
+    text-transform: capitalize;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--secondary);
+    font-family: var(--primary-text);
+}
+
+.intro p {
+    max-width: 80vw;
+    font-size: 0.8rem;
+    text-align: center;
+    color: var(--dark);
+    font-family: var(--secondary-text);
+}
+
+/* intro------------ */
+
+/* stats */
+
+#stats {
+    display: flex;
+    gap: 4rem;
+    justify-content: center;
+}
+
+
+#stats .data {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 8rem;
+}
+
+
+
+#stats .data .data-number {
+    font-size: 2.5rem;
+    color: var(--primary);
+    /* margin: 0 2rem; */
+    font-family: var(--primary-text);
+}
+
+#stats .data p {
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--secondary);
+    font-family: var(--secondary-text);
+}
+
+#stats .data .data-number .plus {
+    font-size: 1.8rem;
+}
+
+/* stats ends */
+
+#card-container {
+    display: flex;
+    margin: min(5vmax, 10rem) auto min(5vmax, 10rem);
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* card starts-----------*/
+.card {
+    font-family: var(--secondary-text);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    padding: 1rem 2rem 1.5rem;
+    border-radius: 10px;
+    background-color: var(--light);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    gap: 0.5rem;
+    color: var(--dark);
+}
+
+.card .top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.card .top p {
+    font-family: var(--primary-text);
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.card .middle p {
+    font-size: 0.75rem;
+}
+
+.card img {
+    height: 3rem;
+}
+
+.card .bottom {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card .bottom button {
+    font-family: var(--secondary-text);
+    padding: 0.4rem 1rem;
+    border-radius: 3px;
+    font-size: 0.6rem;
+    background-color: var(--primary);
+    color: var(--light);
+    border: none;
+    cursor: pointer;
+    transition: all 100ms linear;
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.card .bottom button:hover {
+    background-color: var(--secondary);
+}
+
+/* card ends--------- */
+
+/* members */
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+
+}
+
+#team {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.member {
+    margin: 0.5rem;
+    min-width: 25rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    background-color: var(--light);
+}
+
+.member img {
+    height: 3.5rem;
+    border-radius: 50%;
+}
+
+.member .member-info {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.member .member-info>.member-name h3 {
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: var(--primary);
+    font-family: var(--primary-text);
+}
+
+.member .member-info>.member-name {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+
+}
+
+.member .member-info>.member-name :is(a, h4) {
+    text-decoration: none;
+    font-size: 0.55rem;
+    color: var(--secondary);
+    font-weight: normal;
+    font-family: var(--secondary-text);
+}
+
+.member .member-info p {
+    font-family: var(--secondary-text);
+    font-size: 0.65rem;
+    color: var(--dark);
+}
+
+
+
+/* members-------------- */
+
+
+/* main */
+
+#section2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#spam-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0.5rem 1rem 5rem;
+    background-color: #fff;
+    max-width: 50rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
+
+#options {
+    display: flex;
+    align-items: center;
+    gap: .1rem;
+    padding-top: 1rem;
+    margin-left: 1rem;
+}
+
+#options :is(a, button) {
+    width: 5rem;
+    font-family: var(--secondary-text);
+    padding: 0.4rem 1rem;
+    font-size: 0.65rem;
+    background-color: var(--primary);
+    color: var(--light);
+    border: none;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
+    transition: all 100ms linear;
+    text-decoration: none;
+}
+
+#options a:hover {
+    background-color: var(--secondary);
+}
+
+#options a:first-child {
+    border-radius: 3px 0 0 0;
+}
+
+#options a:last-child {
+    border-radius: 0 3px 0 0;
+}
+
+#code-mail,
+#code-sms {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+#mail-btn.active {
+    background-color: var(--secondary);
+}
+
+#sms-btn.active {
+    background-color: var(--secondary);
+}
+
+.sender-detail {
+    display: flex;
+    flex-direction: column;
+}
+
+.sender-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.sender-content>label,
+.sender-detail>label,
+.consent label {
+    font-size: 0.6rem;
+    transform: translate(5px, -1px);
+    color: var(--secondary);
+    font-family: var(--secondary-text);
+}
+
+.consent label {
+    position: relative;
+    top: -4.5px;
+    right: -5px;
+}
+
+
+.sender-content>textarea,
+.sender-detail input {
+    padding: 0.5rem 0.5rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-family: var(--secondary-text);
+    border: none;
+    box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+    outline: none;
+    color: var(--dark);
+    background-color: #fafafa;
+    border: 2px solid transparent;
+    transition: all 100ms linear;
+    resize: vertical;
+}
+
+.sender-content>textarea:focus,
+.sender-content>textarea:focus-within,
+.sender-detail input:focus {
+    border: 2px solid var(--primary);
+    background-color: var(--background);
+    margin-inline: 1rem;
+}
+
+.button-response {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button-response #spam-generator {
+    width: 10rem;
+    font-family: var(--secondary-text);
+    padding: 0.4rem 1rem;
+    font-size: 0.65rem;
+    background-color: var(--primary);
+    color: var(--light);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+    height: 2rem;
+    transition: all 100ms linear;
+}
+
+.button-response #spam-generator:hover {
+    background-color: var(--secondary);
+}
+
+.consent {
+    display: flex;
+    transform: translate(5px, -1px);
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.consent input {
+    accent-color: var(--primary);
+    height: 1rem;
+    border-radius: 50%;
+    width: 1rem;
+}
+
+#code-sms.none,
+#code-mail.none {
+    display: none;
+}
+
+/* main----------- */
+
+.response {
+    padding: 0.5rem 0.5rem;
+    display: flex;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    font-family: var(--secondary-text);
+    border: none;
+    box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+    outline: none;
+    color: var(--dark);
+    background-color: var(--red-light);
+    border: 2px solid transparent;
+    transition: all 100ms linear;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.result_response.ham .response {
+    background-color: var(--green-light);
+}
+
+.result_response.spam .response {
+    background-color: var(--red-light);
+}
+
+.result_response .left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.result_response .left>.spam-text {
+    font-weight: bold;
+    font-family: var(--primary-text);
+}
+
+.result_response.spam .left>.spam-text {
+    color: var(--red);
+
+}
+
+.result_response.ham .left>.spam-text {
+    color: var(--green);
+}
+
+.result_response .right {
+    font-size: 0.7rem;
+    font-weight: bolder;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    font-family: var(--primary-text);
+}
+
+
+.result_response.spam .right {
+    border: 2px solid var(--red);
+    color: var(--red);
+}
+
+.result_response.ham .right {
+    color: var(--green);
+    border: 2px solid var(--green);
+}
+
+.result_response .consent_text {
+    font-size: 0.6rem;
+    font-family: var(--secondary-text);
+    color: var(--dark);
+    margin-block: 0.5rem;
+}
+
+
+footer {
+    background-color: var(--dark);
+    color: var(--light);
+    height: 1.2rem;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    font-size: 0.6rem;
+    font-family: var(--secondary-text);
+    justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+
+    #stats {
+        gap: 1rem;
+    }
+
+    
+    .intro h1 {
+        font-size: 2rem;
+    }
+
+    #stats .data .data-number{
+        font-size: 2.1rem;
+        /* background-color: red; */
+    }
+  }
