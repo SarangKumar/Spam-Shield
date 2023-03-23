@@ -41,11 +41,13 @@ def display_sms_result():
         consent = 1
     else:
         consent = 0
+
     spam = spam_detector(phone, sms_content, consent)
     return render_template('sms.html',
                            result=1, 
                            score=score,
                            spam=spam,
+                           consent=consent,
                            dataset_count=dataset_count, 
                            feedback_count=feedback_count, 
                            user_count=user_count)
@@ -83,6 +85,7 @@ def display_mail_result():
                             result=1, 
                             spam=spam,
                             score=score,
+                            consent=consent,
                             dataset_count=dataset_count, 
                             feedback_count=feedback_count, 
                             user_count=user_count)
