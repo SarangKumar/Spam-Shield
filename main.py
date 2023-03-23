@@ -4,7 +4,12 @@ from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 import mongodb
 import pickle
+from csv import writer
 
+def append_to_csv(csvpath, data):
+    with open(csvpath, 'a') as appendObj:
+        append = writer(appendObj)
+        append.writerow(data)
 
 def spam_detector(id, content, consent):
     data = pd.read_csv('static/dataset/spam.csv',encoding="latin-1")
@@ -36,11 +41,17 @@ def spam_detector(id, content, consent):
     #-----------------------------------------------------
 
 
+
     test_msg=content
     data=[test_msg]
     vect=cv.transform(data).toarray()
     result=model.predict(vect)
     print(result)
+
+    ans = 'spam' if result == [1] else 'ham'
+    append_to_csv('./static/dataset/spam.csv', [ans, content,'','',''])
+
+
     if result==1:
         if (consent==1):
             mongodb.is_spam(id)
