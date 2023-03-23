@@ -1,30 +1,41 @@
-const links = document.querySelectorAll('.link');
+const databaseFieldCount = document.querySelector("#database-field-count");
+const feedbacks = document.querySelector("#feedbacks");
+const users = document.querySelector("#users");
+
+fVdatabaseFieldCount = databaseFieldCount.textContent;
+fVfeedbacks = feedbacks.textContent;
+fVusers = users.textContent;
 
 
+function increment(selector, finalValue) {
+  let i = 0;
 
-if(window.location.pathname.includes('/email')){
-    document.getElementById('mail').style.borderBottom = '2px solid #5ED4F3'
-} else if(window.location.pathname.includes('/sms')){
-    document.getElementById('sms').style.borderBottom = '2px solid #5ED4F3'
-} else if(window.location.pathname=='/'){
-    document.querySelector('nav').style.display = 'none'
+  finalValue = Number(finalValue);
+  
+  let step;
+  if (finalValue > 10000) { step = 50; }
+  else if (finalValue > 5000) { step = 20; }
+  else if (finalValue > 2000) { step = 10; }
+  else if (finalValue > 500) { step = 5; }
+  else { step = 1; }
+
+
+  let counter = setInterval(function () {
+    selector.textContent = i;
+    i += step
+    if (i > finalValue) {
+      clearInterval(counter);
+      selector.innerHTML += "<span class='plus'>+<span>";
+    }
+  }, 1);
 }
 
-for(let i=0; i<links.length; i++) {
-
-    links[i].addEventListener('click', (e)=>{
-        for(let j=0; j<links[i].length; j++){
-            console.log(links[j])
-            links[j].classList.remove('active');
-        }
-        links[i].classList.add('active')
-    })
-}
-
-
-
-links.map(link => link.addEventListener('click', 
-    // link.classList.add('active'))
-    console.log(link)
+// if (window.location.pathname === '/'){
 // }
-))
+increment(databaseFieldCount, fVdatabaseFieldCount);
+increment(feedbacks, fVfeedbacks);
+increment(users, fVusers);
+
+
+
+

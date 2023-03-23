@@ -1,58 +1,92 @@
 from flask import Flask, render_template, request
-from main import add, spam_detector
+from main import spam_detector, csv_data
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template('index.html')
-
-@app.route("/rough")
-def rough():
-    return render_template('rough.html')
-
-@app.route("/email")
-def email():
-    return render_template('email.html')
-
-@app.route("/email/result", methods=['POST'])
-def resultemail():
-    email = request.form['email']
-    email_content = request.form['email_content']
-    consent = request.form.getlist('consent')
-    
-    if consent == ['1']:
-        consent = 1
-    else:
-        consent = 0
-    
-    final = email + ' ' + email_content
-    spam = spam_detector(email, email_content, consent)
-    return render_template('result.html', id=email, content=email_content, output = final, spam=spam, consent=consent)
-
-@app.route("/sms/result", methods=['POST'])
-def resultesms():
-    phone = request.form['phoneno']
-    sms_content = request.form['sms_content']
-
-    consent = request.form.getlist('consent')
-    
-    if consent == ['1']:
-        consent = 1
-    else:
-        consent = 0
-    # print(consent)
-
-    final = phone + ' ' + sms_content
-    spam = spam_detector(phone, sms_content, consent)
-    return render_template('result.html', id=phone, content=sms_content, output = final, spam=spam, consent=consent)
-
+    dataset_count = csv_data()
+    user_count = 200
+    feedback_count = 125
+    return render_template('mail.html', 
+                           result=0, 
+                           dataset_count=dataset_count, 
+                           feedback_count=feedback_count, 
+                           user_count=user_count)
 
 
 @app.route("/sms")
-def sms():
-    return render_template('sms.html')
+def display_sms():
+    dataset_count = csv_data()
+    user_count = 200
+    feedback_count = 125
+    return render_template('sms.html', 
+                           result=0,
+                           dataset_count=dataset_count, 
+                           feedback_count=feedback_count, 
+                           user_count=user_count)
+
+@app.route("/sms/result", methods=['POST'])
+def display_sms_result():
+    dataset_count = csv_data()
+    user_count = 200
+    feedback_count = 125
+    score = 50
+
+    phone = request.form['senderPhone']
+    sms_content = request.form['senderSMS']
+    consent = request.form.getlist('consent')
+
+    if consent == ['1']:
+        consent = 1
+    else:
+        consent = 0
+    spam = spam_detector(phone, sms_content, consent)
+    return render_template('sms.html',
+                           result=1, 
+                           score=score,
+                           spam=spam,
+                           dataset_count=dataset_count, 
+                           feedback_count=feedback_count, 
+                           user_count=user_count)
+
+@app.route("/mail")
+def display_mail():
+    dataset_count = csv_data()
+    user_count = 200
+    feedback_count = 125
+    return render_template('mail.html', 
+                           result=0, 
+                           dataset_count=dataset_count, 
+                           feedback_count=feedback_count, 
+                           user_count=user_count)
+
+@app.route("/mail/result", methods=['POST'])
+def display_mail_result():
+    dataset_count = csv_data()
+    user_count = 200
+    feedback_count = 125
+    score = 89
+
+    email = request.form['senderMail']
+    email_content = request.form['senderMailContent']
+    consent = request.form.getlist('consent')
+    
+    if consent == ['1']:
+        consent = 1
+    else:
+        consent = 0
+
+    spam = spam_detector(email, email_content, consent)
+    
+    return render_template('mail.html', 
+                            result=1, 
+                            spam=spam,
+                            score=score,
+                            dataset_count=dataset_count, 
+                            feedback_count=feedback_count, 
+                            user_count=user_count)
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8080)
+    app.run(host="0.0.0.0", port=8080)

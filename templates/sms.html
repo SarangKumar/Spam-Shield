@@ -1,39 +1,78 @@
-{%extends "layout.html" %} {% block body %}
+{% extends 'index.html' %}
 
-<div class="heading-container">
-  <h1 class="heading">SPAM IDENTIFIER</h1>
-  <span>(sms)</span>
+{% block sms %}
+
+<div id="options">
+    <a id="mail-btn" href="./mail">Mail</a>
+    <a id="sms-btn" class="active" href="./sms">SMS</a>
 </div>
 
-<form action="/sms/result" class="form" method="post">
-  <div class="phone-container row">
-    <label for="phone">Enter the phone no.</label>
-    <input name="phoneno" required name="phone" type="tel" class="email"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"/>
-  </div>
+<form id="code-sms" method="POST"  action="sms/result">
+    <div class="sender-detail">
+        <label for="">Enter sender's phone number</label>
+        <input  requried type="tel" name="senderPhone" />
+    </div>
+    <div class="sender-content">
+        <label for="">Enter sms content</label>
+        <textarea  requried type="text" name="senderSMS"></textarea>
+    </div>
+    <div class="consent">
+        <div>
+            <input type="checkbox" name="consent" value="1" checked id="outline" class="custom-checkbox" />
+            <label for="outline">I agree to give this data to the website to improve it's model.</label>
+        </div>
+        <div class="button-response">
+            <input id="spam-generator" type="submit" value="Generator Response" />
+        </div>
+    </div>
 
-  <div class="content-container row">
-    <label for="content-ph">Enter the SMS content</label>
-    <textarea
-      required
-      name="sms_content"
-      class="content-textarea"
-      rows="4"
-      type="text"
-    >
-    </textarea>
-  </div>
-  <section class="consent">
-    <input
-      type="checkbox"
-      name="consent"
-      checked
-      value="1"
-      id="outline"
-      class="custom-checkbox"
-    />
-    <label for="outline">I wish to give my data to the website</label>
-  </section>
-  <input type="submit" value="Generate Response"/>
-</form>
+    {% if result %}
+    {% if spam %}
+    <div class="result_response spam">
+      <div class="response">
+        <div class="left">
+          <img src="{{url_for('static', filename='images/crosscircle.svg')}}" alt="" />
+          <div class="spam-text">SPAM</div>
+        </div>
+        <div class="right">
+            {{score}}
+        </div>
+    </div>
+    {% if consent %}
+    <div class="consent_text">
+        Thanks for giving your data to us. It won't be shared.
+    </div>
+      {% else %}
+      <div class="consent_text">
+        Well maybe next time you will give your data so that we can give better services.
+      </div>
+      {% endif %}
+    </div>
+    
+    {% else %}
+      <div class="result_response ham">
+        <div class="response">
+          <div class="left">
+            <img src="{{url_for('static', filename='images/tickcircle.svg')}}" alt="" />
+            <div class="spam-text">NOT SPAM</div>
+          </div>
+          <!-- <div class="right">
+            45
+          </div> -->
+        </div>
+        {% if consent %}
+        <div class="consent_text">
+          Thanks for giving your data to us. It won't be shared.
+        </div>
+        {% else %}
+        <div class="consent_text">
+          Well maybe next time you will give your data so that we can give better services.
+        </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+  {% endif %}
+    </form>
 
 {% endblock %}
