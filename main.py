@@ -34,10 +34,6 @@ def spam_detector(id, content, consent):
 
     clf=pickle.load(open("spam.pkl","rb"))
 
-    # code for database
-    #if consent == 1:
-        #mongodb1.my_insert(id)
-
     #-----------------------------------------------------
 
 
@@ -48,6 +44,7 @@ def spam_detector(id, content, consent):
     result=model.predict(vect)
     print(result)
 
+    # writing the data to the csv file
     ans = 'spam' if result == [1] else 'ham'
     append_to_csv('./static/dataset/spam.csv', [ans, content,'','',''])
 

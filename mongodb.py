@@ -14,7 +14,6 @@ def is_spam(id):
 
     collection.delete_many({'Number_of_spams':0})
 
-
     if (my_input):
         print("Input: ",my_input)
         spam_count = list(my_input.values())[1]
@@ -51,6 +50,5 @@ def is_spam(id):
         {
             'Number_of_spams':spam_count,
             'Input':id
-            
         })
         '''

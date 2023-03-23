@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "Spam Alert",
+    "description": "Get to know which mail is genuine or spam",
+    "version": "1.0.0",
+    "permissions": ["activeTab"],
+    "action": {
+      "default_popup": "popup/popup.html"
+    },
+      "commands": {
+        "_execute_action": {
+          "suggested_key": {
+            "default": "Ctrl+B",
+            "mac": "Command+B"
+          }
+        }
+      }
+  }

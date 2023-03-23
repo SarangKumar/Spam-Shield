@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+    /* outline: 1px solid yellowgreen; */
+}
+
+:root {
+    --background: #f4fffd;
+    --primary: #0E8388;
+    --secondary: #2E4F4F;
+    --light: #fff;
+    --dark: #2C3333;
+    --red: #FF3333;
+    --red-light: #ffefef;
+    --green: #1EBB53;
+    --green-light: #ddffe8;
+
+    --primary-text: 'Montserrat', sans-serif;
+    --secondary-text: 'Poppins';
+}
+
+.intro {
+    margin-block: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro h1 {
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    text-align: center;
+    font-weight: 700;
+    /* margin-bottom: 1rem; */
+    color: var(--secondary);
+    font-family: var(--primary-text);
+}
+
+.intro p {
+    max-width: 80vw;
+    font-size: 0.6rem;
+    text-align: center;
+    color: var(--dark);
+    font-family: var(--secondary-text);
+}
+
+#code-mail,
+#code-sms {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.sender-detail {
+    display: flex;
+    flex-direction: column;
+}
+
+.sender-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.sender-content>label,
+.sender-detail>label,
+.consent label {
+    font-size: 0.6rem;
+    transform: translate(5px, -1px);
+    color: var(--secondary);
+    font-family: var(--secondary-text);
+}
+
+.consent label {
+    position: relative;
+    top: -4.5px;
+    right: -5px;
+}
+
+
+.sender-content>textarea,
+.sender-detail input {
+    padding: 0.5rem 0.5rem;
+    border-radius: 5px;
+    font-size: 0.55rem;
+    font-family: var(--secondary-text);
+    /* border: none; */
+    box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+    outline: none;
+    color: var(--dark);
+    background-color: #fafafa;
+    border: 2px solid transparent;
+    transition: all 100ms linear;
+    resize: vertical;
+    border: 2px solid transparent;
+}
+
+.sender-content>textarea:focus,
+.sender-content>textarea:focus-within,
+.sender-detail input:focus {
+    border: 2px solid var(--primary);
+    background-color: var(--background);
+}
+
+.button-response {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button-response #spam-generator {
+    width: 10rem;
+    font-family: var(--secondary-text);
+    padding: 0.4rem 1rem;
+    font-size: 0.65rem;
+    background-color: var(--primary);
+    color: var(--light);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+    height: 2rem;
+    transition: all 100ms linear;
+}
+
+.button-response #spam-generator:hover {
+    background-color: var(--secondary);
+}
+
+.consent {
+    display: flex;
+    flex-direction: column;
+    transform: translate(5px, -1px);
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.consent input {
+    accent-color: var(--primary);
+    height: 1rem;
+    border-radius: 50%;
+    width: 1rem;
+}
+
+
+.consent_check{
+    display: flex;
+    align-items: center;
+}

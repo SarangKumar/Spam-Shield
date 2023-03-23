@@ -352,14 +352,6 @@ nav {
     padding: 1rem;
 }
 
-#mail-btn.active {
-    background-color: var(--secondary);
-}
-
-#sms-btn.active {
-    background-color: var(--secondary);
-}
-
 .sender-detail {
     display: flex;
     flex-direction: column;
@@ -407,7 +399,6 @@ nav {
 .sender-detail input:focus {
     border: 2px solid var(--primary);
     background-color: var(--background);
-    margin-inline: 1rem;
 }
 
 .button-response {
@@ -448,11 +439,6 @@ nav {
     height: 1rem;
     border-radius: 50%;
     width: 1rem;
-}
-
-#code-sms.none,
-#code-mail.none {
-    display: none;
 }
 
 /* main----------- */
