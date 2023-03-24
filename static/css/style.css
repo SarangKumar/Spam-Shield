@@ -511,16 +511,23 @@ nav {
 .result_response .right {
     font-size: 0.7rem;
     font-weight: bolder;
-    width: 2rem;
+    padding-inline: 0.5rem;
+    /* width: 2rem; */
     height: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    border-radius: 0.3rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     font-family: var(--primary-text);
 }
 
+
+#people_reported{
+    font-family: var(--primary-text);
+    font-size: 0.5rem;
+    padding-inline: 0.5rem;
+}
 
 .result_response.spam .right {
     border: 2px solid var(--red);
@@ -539,6 +546,27 @@ nav {
     margin-block: 0.5rem;
 }
 
+.feedback-container{
+    display: flex;
+    margin-block-start: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.feedback{
+    width: 15rem;
+    font-family: var(--secondary-text);
+    padding: 0.4rem 1rem;
+    font-size: 0.65rem;
+    background-color: var(--primary);
+    color: var(--light);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+    height: 2rem;
+    transition: all 100ms linear;
+}
 
 footer {
     background-color: var(--dark);

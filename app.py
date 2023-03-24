@@ -32,22 +32,24 @@ def display_sms_result():
     dataset_count = csv_data()
     user_count = get_fields_count()
     feedback_count = 125
-    score = 50
 
     phone = request.form['senderPhone']
     sms_content = request.form['senderSMS']
     consent = request.form.getlist('consent')
 
-    if consent == ['1']:
-        consent = 1
-    else:
-        consent = 0
+
+
+    mongo_response = threat_level(phone)
+
+    consent = 1 if consent == ['1'] else 0
+
+    print(phone, sms_content, consent)
 
     spam = spam_detector(phone, sms_content, consent)
     return render_template('sms.html',
                            result=1, 
-                           score=score,
                            spam=spam,
+                           mongo_response=mongo_response,
                            consent=consent,
                            dataset_count=dataset_count, 
                            feedback_count=feedback_count, 
@@ -69,23 +71,20 @@ def display_mail_result():
     dataset_count = csv_data()
     user_count = get_fields_count()
     feedback_count = 125
-    score = 89
 
     email = request.form['senderMail']
     email_content = request.form['senderMailContent']
     consent = request.form.getlist('consent')
-    
-    if consent == ['1']:
-        consent = 1
-    else:
-        consent = 0
 
-    spam = spam_detector(email, email_content, consent)
+    mongo_response = threat_level(email)
+
+    consent = 1 if consent == ['1'] else 0
     
+    spam = spam_detector(email, email_content, consent)
     return render_template('mail.html', 
                             result=1, 
                             spam=spam,
-                            score=score,
+                            mongo_response=mongo_response,
                             consent=consent,
                             dataset_count=dataset_count, 
                             feedback_count=feedback_count, 
