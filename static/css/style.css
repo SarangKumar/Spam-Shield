@@ -218,6 +218,11 @@ nav {
 
 /* members */
 
+
+#mail-btn.active, #sms-btn.active {
+    background-color: var(--secondary);
+}
+
 .center {
     display: flex;
     justify-content: center;

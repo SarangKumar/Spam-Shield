@@ -53,7 +53,7 @@ def is_spam(id):
                 'Input':id,
                 'Threat_level':'High'
             })
-    
+
         '''
         collection.replace_one({'Input':id},
         {
