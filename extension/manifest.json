@@ -1,18 +1,28 @@
 {
-    "manifest_version": 3,
-    "name": "Spam Alert",
-    "description": "Get to know which mail is genuine or spam",
-    "version": "1.0.0",
-    "permissions": ["activeTab"],
-    "action": {
-      "default_popup": "popup/popup.html"
-    },
-      "commands": {
-        "_execute_action": {
-          "suggested_key": {
-            "default": "Ctrl+B",
-            "mac": "Command+B"
-          }
-        }
+  "manifest_version": 3,
+  "name": "Spam Alert",
+  "author":"sarangkumar1578@gmail.com",
+  "description": "Get to know which mail is genuine or spam",
+  "version": "1.0.0",
+  "permissions": ["activeTab"],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Mail Spam Protection"
+  },
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": [
+        "https://*/*"
+      ]
+    }
+  ],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+M",
+        "mac": "Command+M"
       }
+    }
   }
+}

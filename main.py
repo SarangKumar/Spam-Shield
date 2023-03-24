@@ -44,14 +44,15 @@ def spam_detector(id, content, consent):
     result=model.predict(vect)
     print(result)
 
-    # writing the data to the csv file
-    ans = 'spam' if result == [1] else 'ham'
-    append_to_csv('./static/dataset/spam.csv', [ans, content,'','',''])
 
 
     if result==1:
         if (consent==1):
+            # writing in mongodb
             mongodb.is_spam(id)
+            # writing the data to the csv file
+            ans = 'spam' if result == [1] else 'ham'
+            append_to_csv('./static/dataset/spam.csv', [ans, content,'','',''])
         return 1
     else:
         return 0

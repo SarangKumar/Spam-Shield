@@ -22,6 +22,9 @@
     --secondary-text: 'Poppins';
 }
 
+body{
+    width: 20rem;
+}
 .intro {
     margin-block: 1rem;
     display: flex;

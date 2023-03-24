@@ -182,7 +182,9 @@ nav {
 }
 
 .card .middle p {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    color: var(--dark);
+    font-family: var(--secondary-text);
 }
 
 .card img {
@@ -439,6 +441,14 @@ nav {
     height: 1rem;
     border-radius: 50%;
     width: 1rem;
+}
+
+
+
+.consent_check{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* main----------- */
