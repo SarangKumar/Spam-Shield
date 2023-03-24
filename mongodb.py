@@ -61,6 +61,3 @@ def is_spam(id):
             'Input':id
         })
         '''
-
-
-print(get_fields_count())
