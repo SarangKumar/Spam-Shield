@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from main import spam_detector, csv_data
-from mongodb import get_fields_count
+from mongodb import get_fields_count,threat_level
 
 app = Flask(__name__)
 
