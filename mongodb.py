@@ -9,6 +9,16 @@ def get_fields_count():
     collection = db['spamlist']
     return len(list(collection.find()))
 
+def threat_level(id):
+    # print("Welcome to pyMongo")
+    client = pymongo.MongoClient("mongodb://localhost:27017")
+    # print(client)
+    db = client['hackattack']
+    collection = db['spamlist']
+    print(list(collection.find({}, {"Input": id})))
+    return 0
+
+
 def is_spam(id):
     print("Welcome to pyMongo")
     client = pymongo.MongoClient("mongodb://localhost:27017")
@@ -66,3 +76,7 @@ def is_spam(id):
 
 if __name__ == '__main__':
     print(get_fields_count())
+    threat_level('xyz@gmail.com')
+
+
+
