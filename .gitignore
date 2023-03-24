@@ -1,7 +1,6 @@
-/text.html
-
+/__pycache__
+/spam_alert_system.py
 /*.ipynb
-
 /*.pkl
 
-/__pycache__
+
