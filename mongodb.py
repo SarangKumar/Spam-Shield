@@ -21,7 +21,7 @@ def is_spam(id):
 
     my_input = collection.find_one({'Input':id})
 
-    collection.delete_many({'Number_of_spams':0})
+    
 
     if (my_input):
         print("Input: ",my_input)
@@ -53,7 +53,7 @@ def is_spam(id):
                 'Input':id,
                 'Threat_level':'High'
             })
-
+    
         '''
         collection.replace_one({'Input':id},
         {
@@ -61,3 +61,8 @@ def is_spam(id):
             'Input':id
         })
         '''
+
+    collection.delete_many({'Number_of_spams':0})
+
+if __name__ == '__main__':
+    print(get_fields_count())
