@@ -15,8 +15,11 @@ def threat_level(id):
     # print(client)
     db = client['hackattack']
     collection = db['spamlist']
-    print(list(collection.find({}, {"Input": id})))
-    return 0
+    mongo_resp = list(collection.find({"Input": id}))
+    if len(mongo_resp)!=0:
+        return mongo_resp[0]
+    else:
+        return 0
 
 
 def is_spam(id):
@@ -76,7 +79,10 @@ def is_spam(id):
 
 if __name__ == '__main__':
     print(get_fields_count())
-    threat_level('xyz@gmail.com')
+    print(threat_level('xyz@gmail.com'))
+    print(threat_level('abc@gmail.com'))
+    print(threat_level('9988776588'))
+    print(threat_level('9988776589'))
 
 
 
