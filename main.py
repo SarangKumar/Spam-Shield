@@ -4,7 +4,12 @@ from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 import mongodb
 import pickle
+from csv import writer
 
+def append_to_csv(csvpath, data):
+    with open(csvpath, 'a') as appendObj:
+        append = writer(appendObj)
+        append.writerow(data)
 
 def spam_detector(id, content, consent):
     data = pd.read_csv('static/dataset/spam.csv',encoding="latin-1")
@@ -29,11 +34,8 @@ def spam_detector(id, content, consent):
 
     clf=pickle.load(open("spam.pkl","rb"))
 
-    # code for database
-    #if consent == 1:
-        #mongodb1.my_insert(id)
-
     #-----------------------------------------------------
+
 
 
     test_msg=content
@@ -41,11 +43,42 @@ def spam_detector(id, content, consent):
     vect=cv.transform(data).toarray()
     result=model.predict(vect)
     print(result)
-    if result==1:
-        if (consent==1):
-            mongodb.is_spam(id)
+
+
+
+    # if result==1:
+    #     if (consent==1):
+    #         # writing in mongodb
+    #         mongodb.is_spam(id)
+    #         # writing the data to the csv file
+    #         ans = 'spam' if result == [1] else 'ham'
+    #         append_to_csv('./static/dataset/spam.csv', [ans, content,'','',''])
+    #     return 1
+    # else:
+    #     return 0
+
+    if consent==1 and result==1:
+        print('consent = 1, result = 1')
+        # writing in mongodb
+        mongodb.is_spam(id)
+
+        # writing the data to the csv file
+        ans = 'spam' if result == [1] else 'ham'
+        append_to_csv('./static/dataset/spam.csv', [ans, content,'','',''])
+        
+        return 1
+    elif consent==1 and result==0:
+        print('consent = 1, result = 0')
+        # writing the data to the csv file
+        ans = 'spam' if result == [1] else 'ham'
+        append_to_csv('./static/dataset/spam.csv', [ans, content,'','',''])
+        
+        return 0
+    elif consent==0 and result==1:
+        print('consent = 0, result = 1')
         return 1
     else:
+        print('consent = 0, result = 0')
         return 0
 
 def csv_data():
@@ -53,4 +86,4 @@ def csv_data():
     return data.shape[0]
 
 if __name__ == '__main__':
-    print('this is the main function')
+    print(spam_detector('newuser@gmail.com', 'you have won a lottery worth 10,000 rupees', 1))

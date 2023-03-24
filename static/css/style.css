@@ -182,7 +182,9 @@ nav {
 }
 
 .card .middle p {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    color: var(--dark);
+    font-family: var(--secondary-text);
 }
 
 .card img {
@@ -215,6 +217,11 @@ nav {
 /* card ends--------- */
 
 /* members */
+
+
+#mail-btn.active, #sms-btn.active {
+    background-color: var(--secondary);
+}
 
 .center {
     display: flex;
@@ -352,14 +359,6 @@ nav {
     padding: 1rem;
 }
 
-#mail-btn.active {
-    background-color: var(--secondary);
-}
-
-#sms-btn.active {
-    background-color: var(--secondary);
-}
-
 .sender-detail {
     display: flex;
     flex-direction: column;
@@ -407,7 +406,6 @@ nav {
 .sender-detail input:focus {
     border: 2px solid var(--primary);
     background-color: var(--background);
-    margin-inline: 1rem;
 }
 
 .button-response {
@@ -450,9 +448,12 @@ nav {
     width: 1rem;
 }
 
-#code-sms.none,
-#code-mail.none {
-    display: none;
+
+
+.consent_check{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* main----------- */

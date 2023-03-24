@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Spam Shield",
+  "author":"sarangkumar1578@gmail.com",
+  "description": "Get to know which mail is genuine or spam",
+  "version": "1.0.0",
+  "permissions": ["activeTab"],
+  "icons": {
+    "16": "./icons/shieldtick-16.png",
+    "32": "./icons/shieldtick-32.png",
+    "48": "./icons/shieldtick-48.png",
+    "64": "./icons/shieldtick-64.png",
+    "128": "./icons/shieldtick-128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Mail Spam Protection",
+    "default_icon": {
+      "16": "./icons/shieldtick-16.png",
+      "32": "./icons/shieldtick-32.png",
+      "48": "./icons/shieldtick-48.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": [
+        "https://*/*"
+      ]
+    }
+  ],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+M",
+        "mac": "Command+M"
+      }
+    }
+  }
+}

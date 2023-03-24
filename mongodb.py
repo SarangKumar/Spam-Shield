@@ -1,5 +1,14 @@
 import pymongo
 
+
+def get_fields_count():
+    # print("Welcome to pyMongo")
+    client = pymongo.MongoClient("mongodb://localhost:27017")
+    # print(client)
+    db = client['hackattack']
+    collection = db['spamlist']
+    return len(list(collection.find()))
+
 def is_spam(id):
     print("Welcome to pyMongo")
     client = pymongo.MongoClient("mongodb://localhost:27017")
@@ -13,7 +22,6 @@ def is_spam(id):
     my_input = collection.find_one({'Input':id})
 
     collection.delete_many({'Number_of_spams':0})
-
 
     if (my_input):
         print("Input: ",my_input)
@@ -45,12 +53,11 @@ def is_spam(id):
                 'Input':id,
                 'Threat_level':'High'
             })
-    
+
         '''
         collection.replace_one({'Input':id},
         {
             'Number_of_spams':spam_count,
             'Input':id
-            
         })
         '''
