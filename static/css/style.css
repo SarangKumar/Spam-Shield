@@ -17,7 +17,6 @@
     --red-light: #ffefef;
     --green: #1EBB53;
     --green-light: #ddffe8;
-
     --primary-text: 'Montserrat', sans-serif;
     --secondary-text: 'Poppins';
 }
@@ -25,6 +24,11 @@
 body {
     scroll-behavior: smooth;
     background-color: #fafafa;
+}
+
+::selection{
+    background-color: var(--primary);
+    color: var(--light);
 }
 
 nav {
@@ -53,7 +57,7 @@ nav {
     height: 2rem;
 }
 
-.nav-title a{
+.nav-title a {
     text-decoration: none;
     color: var(--light);
 }
@@ -224,7 +228,8 @@ nav {
 /* members */
 
 
-#mail-btn.active, #sms-btn.active {
+#mail-btn.active,
+#sms-btn.active {
     background-color: var(--secondary);
 }
 
@@ -357,11 +362,14 @@ nav {
 }
 
 #code-mail,
-#code-sms {
+#code-sms,
+#feedback {
     display: flex;
     flex-direction: column;
     gap: 2rem;
     padding: 1rem;
+    width: 40rem;
+    
 }
 
 .sender-detail {
@@ -453,9 +461,7 @@ nav {
     width: 1rem;
 }
 
-
-
-.consent_check{
+.consent_check {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -523,7 +529,7 @@ nav {
 }
 
 
-#people_reported{
+#people_reported {
     font-family: var(--primary-text);
     font-size: 0.5rem;
     padding-inline: 0.5rem;
@@ -546,14 +552,47 @@ nav {
     margin-block: 0.5rem;
 }
 
-.feedback-container{
+
+.feedback-container {
     display: flex;
-    margin-block-start: 1rem;
     align-items: center;
     justify-content: center;
+    gap: -1px;
+    margin: 2rem 0 1.5rem;
 }
 
-.feedback{
+.feedback-container input[type="tel"],
+.feedback-container input[type="submit"] {
+    padding: 0.5rem 0rem;
+    text-align: center;
+    background-color: var(--primary);
+    font-size: 0.6rem;
+    color: var(--light);
+    /* bottom: ; */
+    font-family: var(--secondary-text);
+    transition: all 100ms linear;
+    outline: 2px solid var(--primary);
+    height: 2rem;
+    border: none;
+}
+
+.feedback-container input[type="tel"]{
+    background-color: #fafafa;
+    font-weight: bold;
+    color: var(--secondary);
+}
+
+.feedback-container input:first-child{
+    border-radius: 5px 0 0 5px;
+}
+.feedback-container input:last-child{
+    border-radius: 0 5px 5px 0;
+}
+
+.feedback-container :hover .feedback-container:input{
+    outline-color: var(--secondary);
+}
+.feedback {
     width: 15rem;
     font-family: var(--secondary-text);
     padding: 0.4rem 1rem;
@@ -580,19 +619,26 @@ footer {
     justify-content: center;
 }
 
+
+
+input[readonly]{
+    cursor: not-allowed;
+}
+
+
 @media only screen and (max-width: 600px) {
 
     #stats {
         gap: 1rem;
     }
 
-    
+
     .intro h1 {
         font-size: 2rem;
     }
 
-    #stats .data .data-number{
+    #stats .data .data-number {
         font-size: 2.1rem;
         /* background-color: red; */
     }
-  }
+}

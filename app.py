@@ -99,12 +99,30 @@ def sms_isspam():
     user_count = get_fields_count()
     feedback_count = 125
 
+    is_sms = 1
+
     phone = request.form['senderPhone']
     print(phone)
 
-    
-
     return render_template('feedback.html', 
+                           is_sms = is_sms,
+                           phone=phone,
+                           dataset_count=dataset_count, 
+                           user_count=user_count, 
+                           feedback_count=feedback_count)
+
+@app.route("/sms/result/notspam", methods=['POST'])
+def sms_notspam():
+    dataset_count = csv_data()
+    user_count = get_fields_count()
+    feedback_count = 125
+
+    is_sms = 1
+
+    phone = request.form['senderPhone']
+
+    return render_template('feedback.html',
+                           is_sms = is_sms,
                            phone=phone,
                            dataset_count=dataset_count, 
                            user_count=user_count, 
