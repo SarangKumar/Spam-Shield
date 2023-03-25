@@ -57,7 +57,7 @@
             {% endif %}
             <form class="feedback-container" action="/mail/result/notspam" method="POST">
 				<input requried type="email" name="senderMail" value={{email}} />
-                <input class="feedback" value="This mail id is not a spam mail id" type="submit" />
+                <input class="feedback" value="Feedback: This mail id is not a spam mail id" type="submit" />
             </form>
         </div>
 
@@ -85,7 +85,7 @@
             
             <form class="feedback-container" action="/mail/result/isspam"  method="POST">
 				<input readonly type="email" name="senderMail" value={{email}} />
-                <input class="feedback" type="submit" value="This mail id is a spam mail id" />
+                <input class="feedback" type="submit" value="Feedback: This mail id is a spam mail id" />
             </form>
         </div>
 

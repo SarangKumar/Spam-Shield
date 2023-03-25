@@ -368,7 +368,7 @@ nav {
     flex-direction: column;
     gap: 2rem;
     padding: 1rem;
-    width: 40rem;
+    width: min(80vw, 40rem);
     
 }
 

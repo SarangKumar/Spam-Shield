@@ -57,7 +57,7 @@
             {% endif %}
             <form class="feedback-container" action="/sms/result/notspam" method="POST">
 				<input pattern="[789][0-9]{9}" requried type="tel" name="senderPhone" value={{phone}} />
-                <input class="feedback" value="This phone.no is not a spam phone.no" type="submit" />
+                <input class="feedback" value="Feedback: This phone.no is not a spam phone.no" type="submit" />
             </form>
         </div>
 
@@ -85,7 +85,7 @@
             
             <form class="feedback-container" action="/sms/result/isspam"  method="POST">
 				<input pattern="[789][0-9]{9}" readonly type="tel" name="senderPhone" value={{phone}} />
-                <input class="feedback" type="submit" value="This phone.no is a spam phone.no" />
+                <input class="feedback" type="submit" value="Feedback: This phone.no is a spam phone.no" />
             </form>
         </div>
 

@@ -3,12 +3,12 @@
 {% block sms_feedback %}
 
 <div id="feedback">
-    {% if is_sms %}
+    {% if response["type"] == "sms" %}
         <h1>Feedback for sms</h1>
-        {{phone}}
-    {% else %}
+        {{response["id"]}}
+    {% elif response["type"] == "email" %}
         <h1>Feedback for mail</h1>
-        {{email}}
+        {{response["id"]}}
     {% endif %}
 </div>
 
