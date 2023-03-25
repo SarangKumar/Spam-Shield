@@ -49,6 +49,8 @@ def display_sms_result():
     return render_template('sms.html',
                            result=1, 
                            spam=spam,
+                           phone=phone,
+                           sms_content=sms_content,
                            mongo_response=mongo_response,
                            consent=consent,
                            dataset_count=dataset_count, 
@@ -89,6 +91,24 @@ def display_mail_result():
                             dataset_count=dataset_count, 
                             feedback_count=feedback_count, 
                             user_count=user_count)
+
+
+@app.route("/sms/result/isspam", methods=['POST'])
+def sms_isspam():
+    dataset_count = csv_data()
+    user_count = get_fields_count()
+    feedback_count = 125
+
+    phone = request.form['senderPhone']
+    print(phone)
+
+    
+
+    return render_template('feedback.html', 
+                           phone=phone,
+                           dataset_count=dataset_count, 
+                           user_count=user_count, 
+                           feedback_count=feedback_count)
 
 
 if __name__ == "__main__":
