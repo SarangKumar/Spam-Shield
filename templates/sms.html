@@ -17,15 +17,6 @@
                 <label for="">Enter sms content</label>
                 <textarea rows="10" requried type="text" name="senderSMS">{{sms_content}}</textarea>
             </div>
-            <div class="consent">
-                <div class="consent_check">
-                    <input type="checkbox" name="consent" value="1" checked id="outline" class="custom-checkbox" />
-                    <label for="outline">I agree to give this data to the website to improve it's model. (optional)</label>
-                </div>
-                <div class="button-response">
-                    <input id="spam-generator" type="submit" value="Generator Response" />
-                </div>
-            </div>
         </form>
 
         {% if spam %}
