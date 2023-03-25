@@ -3,6 +3,10 @@
 {% block sms_feedback %}
 
 <div id="feedback">
+    <div id="options">
+        <a id="mail-btn" href="/mail">Mail</a>
+        <a id="sms-btn" href="/sms">SMS</a>
+    </div>
     {% if response["type"] == "sms" %}
         <h1>Feedback for sms</h1>
         {{response["id"]}}
