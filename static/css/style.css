@@ -369,7 +369,6 @@ nav {
     gap: 2rem;
     padding: 1rem;
     width: min(80vw, 40rem);
-    
 }
 
 .sender-detail {
@@ -627,6 +626,20 @@ input[readonly]{
     cursor: not-allowed;
 }
 
+.feedback_content {
+    padding:0 1rem 1rem;
+}
+
+.feedback_heading{
+    font-family: var(--primary-text);
+    color: var(--dark);    
+    font-size: 1.5rem;
+}
+.feedback_desc{
+    font-family: var(--secondary-text);
+    color: var(--dark);   
+    font-size: 0.8rem; 
+}
 
 @media only screen and (max-width: 600px) {
 

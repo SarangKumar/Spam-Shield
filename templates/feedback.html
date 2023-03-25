@@ -7,13 +7,18 @@
         <a id="mail-btn" href="/mail">Mail</a>
         <a id="sms-btn" href="/sms">SMS</a>
     </div>
-    {% if response["type"] == "sms" %}
-        <h1>Feedback for sms</h1>
-        {{response["id"]}}
-    {% elif response["type"] == "email" %}
-        <h1>Feedback for mail</h1>
-        {{response["id"]}}
-    {% endif %}
+    <div class="feedback_content">
+
+        {% if response["type"] == "sms" %}
+            <h1 class="feedback_heading">Feedback for sms</h1>
+            <p class="feedback_desc">Thank you for your feedback.</p>
+            <p class="feedback_desc">Your feedback for phone number, {{response["id"]}} has been registered.</p>
+        {% elif response["type"] == "email" %}
+            <h1>Feedback for mail</h1>
+            <p class="feedback_desc">Thank you for your feedback.</p>
+            <p class="feedback_desc">Your feedback for email id, {{response["id"]}} has been registered.</p>
+        {% endif %}
+    </div>
 </div>
 
 {% endblock %}
