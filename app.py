@@ -86,6 +86,8 @@ def display_mail_result():
     return render_template('mail.html', 
                             result=1, 
                             spam=spam,
+                            email=email,
+                            email_content=email_content,
                             mongo_response=mongo_response,
                             consent=consent,
                             dataset_count=dataset_count, 
@@ -111,6 +113,42 @@ def sms_isspam():
                            user_count=user_count, 
                            feedback_count=feedback_count)
 
+@app.route("/mail/result/isspam", methods=['POST'])
+def mail_isspam():
+    dataset_count = csv_data()
+    user_count = get_fields_count()
+    feedback_count = 125
+
+    is_sms = 0
+
+    email = request.form['senderMail']
+    print(email)
+
+    return render_template('feedback.html', 
+                           is_sms = is_sms,
+                           email=email,
+                           dataset_count=dataset_count, 
+                           user_count=user_count, 
+                           feedback_count=feedback_count)
+
+@app.route("/mail/result/notspam", methods=['POST'])
+def mail_notspam():
+    dataset_count = csv_data()
+    user_count = get_fields_count()
+    feedback_count = 125
+
+    is_sms = 0
+
+    email = request.form['senderMail']
+    print(email)
+
+    return render_template('feedback.html', 
+                           is_sms = is_sms,
+                           email=email,
+                           dataset_count=dataset_count, 
+                           user_count=user_count, 
+                           feedback_count=feedback_count)
+
 @app.route("/sms/result/notspam", methods=['POST'])
 def sms_notspam():
     dataset_count = csv_data()
@@ -118,16 +156,17 @@ def sms_notspam():
     feedback_count = 125
 
     is_sms = 1
+    spam = 0
 
     phone = request.form['senderPhone']
 
     return render_template('feedback.html',
                            is_sms = is_sms,
+                           
                            phone=phone,
                            dataset_count=dataset_count, 
                            user_count=user_count, 
                            feedback_count=feedback_count)
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)

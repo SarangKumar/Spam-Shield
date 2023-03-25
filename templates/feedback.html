@@ -2,10 +2,13 @@
 
 {% block sms_feedback %}
 
-<div id="feedback">z
+<div id="feedback">
     {% if is_sms %}
-        <h1>Feedback</h1>
+        <h1>Feedback for sms</h1>
         {{phone}}
+    {% else %}
+        <h1>Feedback for mail</h1>
+        {{email}}
     {% endif %}
 </div>
 

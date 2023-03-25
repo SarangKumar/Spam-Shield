@@ -1,0 +1,78 @@
+{% extends 'index.html' %}
+
+{% block mail %}
+
+<div id="options">
+    <a id="mail-btn" class="active" href='/mail'>Mail</a>
+    <a id="sms-btn" href='/sms'>SMS</a>
+</div>
+
+<form id="code-mail" method="POST"  action="mail/result">
+    <div class="sender-detail">
+        <label for="">Enter sender's mail</label>
+        <input requried type="text" name="senderMail" />
+    </div>
+    <div class="sender-content">
+        <label for="">Enter mail content</label>
+        <textarea requried rows="10" type="text" name="senderMailContent"></textarea>
+    </div>
+    <div class="consent">
+        <div class="consent_check">
+            <input type="checkbox"  name="consent" value="1" checked id="outline" class="custom-checkbox" />
+            <label for="outline">I agree to give this data to the website to improve it's model (optional)</label>
+        </div>
+        <div class="button-response">
+            <input id="spam-generator" type="submit" value="Generator Response" />
+        </div>
+    </div>
+
+    {% if result %}
+      	{% if spam %}
+      	<div class="result_response spam">
+        	<div class="response">
+          		<div class="left">
+            		<img src="{{url_for('static', filename='images/crosscircle.svg')}}" alt="" />
+            		<div class="spam-text">SPAM</div>
+          		</div>
+				  {% if mongo_response != 0 %}
+				  <div class="right">
+					  {{mongo_response['Threat_level']}} <span id="people_reported">{{mongo_response['Number_of_spams']}} people have got spam from this phone.no</span>
+				  </div>
+				  {% endif %}
+        	</div>
+        
+			{% if consent %}
+        	<div class="consent_text">Thanks for giving your data to us. It won't be shared.</div>
+        	{% else %}
+        	<div class="consent_text">Well maybe next time you will give your data so that we can give better services.</div>
+        	{% endif %}
+			<div class="feedback-container">
+				<button class="feedback">This mail is not a spam mail</button>
+			</div>
+      	</div>
+
+      	{% else %}
+        <div class="result_response ham">
+          	<div class="response">
+            	<div class="left">
+              		<img src="{{url_for('static', filename='images/tickcircle.svg')}}" alt="" />
+              		<div class="spam-text">NOT SPAM</div>
+            	</div>
+            	<!-- <div class="right">45</div> -->
+			</div>
+          		
+			{% if consent %}
+        	<div class="consent_text">Thanks for giving your data to us. It won't be shared.</div>
+        	{% else %}
+        	<div class="consent_text">Well maybe next time you will give your data so that we can give better services.</div>
+        	{% endif %}
+			<div class="feedback-container">
+				<button class="feedback">This mail is a spam mail</button>
+			</div>
+        </div>
+      	{% endif %}
+
+    {% endif %}
+  </form>
+
+{% endblock %}

@@ -562,6 +562,7 @@ nav {
 }
 
 .feedback-container input[type="tel"],
+.feedback-container input[type="email"],
 .feedback-container input[type="submit"] {
     padding: 0.5rem 0rem;
     text-align: center;
@@ -576,7 +577,8 @@ nav {
     border: none;
 }
 
-.feedback-container input[type="tel"]{
+.feedback-container input[type="tel"],
+.feedback-container input[type="email"]{
     background-color: #fafafa;
     font-weight: bold;
     color: var(--secondary);
