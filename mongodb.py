@@ -34,7 +34,7 @@ def is_spam(id):
 
     my_input = collection.find_one({'Input':id})
 
-    
+        
 
     if (my_input):
         print("Input: ",my_input)

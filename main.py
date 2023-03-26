@@ -45,18 +45,6 @@ def spam_detector(id, content, consent):
     print(result)
 
 
-
-    # if result==1:
-    #     if (consent==1):
-    #         # writing in mongodb
-    #         mongodb.is_spam(id)
-    #         # writing the data to the csv file
-    #         ans = 'spam' if result == [1] else 'ham'
-    #         append_to_csv('./static/dataset/spam.csv', [ans, content,'','',''])
-    #     return 1
-    # else:
-    #     return 0
-
     if consent==1 and result==1:
         print('consent = 1, result = 1')
         # writing in mongodb
