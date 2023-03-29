@@ -5,6 +5,7 @@ from mongodb import get_fields_count,threat_level
 app = Flask(__name__)
 
 @app.route("/")
+@app.route("/mail")
 def home():
     dataset_count = csv_data()
     user_count = get_fields_count()
@@ -19,6 +20,8 @@ def home():
                            result=0, 
                            stats=stats
                            )
+
+
 
 
 @app.route("/sms")
@@ -125,22 +128,7 @@ def sms_notspam():
                            )
 
 
-@app.route("/mail")
-def display_mail():
-    dataset_count = csv_data()
-    user_count = get_fields_count()
-    feedback_count = 125
-    
-    stats = {
-        "dataset_count": dataset_count,
-        "user_count": user_count,
-        "feedback_count": feedback_count
-    }
 
-    return render_template('mail.html', 
-                           result=0, 
-                           stats=stats
-                           )
 
 @app.route("/mail/result", methods=['POST'])
 def display_mail_result():
